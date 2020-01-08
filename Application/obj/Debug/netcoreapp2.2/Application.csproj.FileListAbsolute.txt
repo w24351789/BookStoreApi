@@ -1,0 +1,13 @@
+C:\Users\atwta\Desktop\dotnetcore\BookStoreApi\WebApi\Application\bin\Debug\netcoreapp2.2\Application.deps.json
+C:\Users\atwta\Desktop\dotnetcore\BookStoreApi\WebApi\Application\bin\Debug\netcoreapp2.2\Application.dll
+C:\Users\atwta\Desktop\dotnetcore\BookStoreApi\WebApi\Application\bin\Debug\netcoreapp2.2\Application.pdb
+C:\Users\atwta\Desktop\dotnetcore\BookStoreApi\WebApi\Application\bin\Debug\netcoreapp2.2\Domain.dll
+C:\Users\atwta\Desktop\dotnetcore\BookStoreApi\WebApi\Application\bin\Debug\netcoreapp2.2\Persistence.dll
+C:\Users\atwta\Desktop\dotnetcore\BookStoreApi\WebApi\Application\bin\Debug\netcoreapp2.2\Domain.pdb
+C:\Users\atwta\Desktop\dotnetcore\BookStoreApi\WebApi\Application\bin\Debug\netcoreapp2.2\Persistence.pdb
+C:\Users\atwta\Desktop\dotnetcore\BookStoreApi\WebApi\Application\obj\Debug\netcoreapp2.2\Application.csprojAssemblyReference.cache
+C:\Users\atwta\Desktop\dotnetcore\BookStoreApi\WebApi\Application\obj\Debug\netcoreapp2.2\Application.AssemblyInfoInputs.cache
+C:\Users\atwta\Desktop\dotnetcore\BookStoreApi\WebApi\Application\obj\Debug\netcoreapp2.2\Application.AssemblyInfo.cs
+C:\Users\atwta\Desktop\dotnetcore\BookStoreApi\WebApi\Application\obj\Debug\netcoreapp2.2\Application.csproj.CopyComplete
+C:\Users\atwta\Desktop\dotnetcore\BookStoreApi\WebApi\Application\obj\Debug\netcoreapp2.2\Application.dll
+C:\Users\atwta\Desktop\dotnetcore\BookStoreApi\WebApi\Application\obj\Debug\netcoreapp2.2\Application.pdb
