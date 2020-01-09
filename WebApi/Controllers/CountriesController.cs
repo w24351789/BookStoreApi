@@ -15,17 +15,17 @@ namespace WebApi.Controllers
     public class CountriesController : BaseController
     {
         [HttpGet]
-        public async Task<ActionResult<List<Country>>> GetCountries()
+        public async Task<ActionResult<List<Review>>> GetCountries()
         {
             return await Mediator.Send(new GetCountries.Query());
         }
         [HttpGet("{countryid}")]
-        public async Task<ActionResult<Country>> GetCountry(int countryid)
+        public async Task<ActionResult<Review>> GetCountry(int countryid)
         {
             return await Mediator.Send(new GetCountry.Query { CountryId = countryid});
         }
         [HttpGet("authors/{authorid}")]
-        public async Task <ActionResult<Country>> GetCountryOfAnAuthor(int authorid)
+        public async Task <ActionResult<Review>> GetCountryOfAnAuthor(int authorid)
         {
             return await Mediator.Send(new GetCountryOfAnAuthor.Query { AuthorId = authorid });
         }

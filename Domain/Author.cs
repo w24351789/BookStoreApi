@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using System.Collections.Generic;
 
 namespace Domain
 {
@@ -9,7 +7,7 @@ namespace Domain
         public int Id { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
-        public virtual Country Country { get; set; }
+        public virtual Review Country { get; set; }
         public virtual ICollection<BookAuthor> BookAuthors { get; set; }
     }
 }

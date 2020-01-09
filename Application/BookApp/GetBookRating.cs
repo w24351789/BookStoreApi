@@ -13,12 +13,12 @@ namespace Application.BookApp
 {
     public class GetBookRating
     {
-        public class Query : IRequest<List<Review>>
+        public class Query : IRequest<decimal>
         {
             public int BookId { get; set; }
         }
 
-        public class Handler : IRequestHandler<Query, List<Review>>
+        public class Handler : IRequestHandler<Query, decimal>
         {
             private readonly BookDbContext _context;
 
@@ -27,12 +27,14 @@ namespace Application.BookApp
                 _context = context;
             }
 
-            public async Task<List<Review>> Handle(Query request, CancellationToken cancellationToken)
+            public async Task<decimal> Handle(Query request, CancellationToken cancellationToken)
             {
-                var reviews = await _context.Reviews.Where(r => r.Book.Id == request.BookId)
-                    .ToListAsync();
-                   
-                return reviews;
+                var reviews = _context.Reviews.Where(r => r.Book.Id == request.BookId)
+                    .Select(r => r.Rating);
+
+                var rating = (decimal)reviews.Sum() / reviews.Count();
+
+                return await Task.FromResult(rating);
             }
         }
     }

@@ -1,14 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using System.Collections.Generic;
 using System.Threading.Tasks;
 using Application.BookApp;
 using Domain;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace WebApi.Controllers
-{ 
+{
     public class BooksController : BaseController
     {
         [HttpGet]
@@ -30,12 +27,10 @@ namespace WebApi.Controllers
         }
 
         [HttpGet("{bookId}/rating")]
-        public async Task<ActionResult> GetBookRating(int bookId)
+        public async Task<ActionResult<decimal>> GetBookRating(int bookId)
         {
-            var reviews = await Mediator.Send(new GetBookRating.Query { BookId = bookId });
-
-            var rating =  (decimal)reviews.Sum(r => r.Rating) / reviews.Count();
-            return Ok(rating);
+            return await Mediator.Send(new GetBookRating.Query { BookId = bookId });
+          
         }
     }
 }

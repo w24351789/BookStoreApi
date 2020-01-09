@@ -13,11 +13,11 @@ namespace Application.CountryApp
 {
     public class GetCountryOfAnAuthor
     {
-        public class Query : IRequest<Country>
+        public class Query : IRequest<Review>
         {
             public int AuthorId { get; set; }
         }
-        public class Handler : IRequestHandler<Query, Country>
+        public class Handler : IRequestHandler<Query, Review>
         {
             private readonly BookDbContext _context;
 
@@ -26,7 +26,7 @@ namespace Application.CountryApp
                 _context = context;
             }
 
-            public async Task<Country> Handle(Query request, CancellationToken cancellationToken)
+            public async Task<Review> Handle(Query request, CancellationToken cancellationToken)
             {
                 var country = _context.Authors.Where(a => a.Id == request.AuthorId)
                     .Select(a => a.Country)

@@ -38,7 +38,7 @@ namespace WebApi
                     {
                         FirstName = "Jack",
                         LastName = "London",
-                        Country = new Country()
+                        Country = new Review()
                         {
                             Name = "USA"
                         }
@@ -65,7 +65,7 @@ namespace WebApi
                     {
                         FirstName = "Karl",
                         LastName = "May",
-                        Country = new Country()
+                        Country = new Review()
                         {
                             Name = "Germany"
                         }
@@ -93,7 +93,7 @@ namespace WebApi
                     {
                         FirstName = "Pavol",
                         LastName = "Almasi",
-                        Country = new Country()
+                        Country = new Review()
                         {
                             Name = "Slovakia"
                         }
@@ -116,7 +116,7 @@ namespace WebApi
                     {
                         FirstName = "Alexander",
                         LastName = "Dumas",
-                        Country = new Country()
+                        Country = new Review()
                         {
                             Name = "France"
                         }
@@ -145,7 +145,7 @@ namespace WebApi
                     {
                         FirstName = "Anita",
                         LastName = "Powers",
-                        Country = new Country()
+                        Country = new Review()
                         {
                             Name = "Canada"
                         }

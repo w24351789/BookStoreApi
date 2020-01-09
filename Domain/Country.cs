@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Domain
 {
-    public class Country
+    public class Review
     {
         public int Id { get; set; }
         public string Name { get; set; }
