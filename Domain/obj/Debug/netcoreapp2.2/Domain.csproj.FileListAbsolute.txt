@@ -6,3 +6,11 @@ C:\Users\atwta\Desktop\dotnetcore\BookStoreApi\WebApi\Domain\obj\Debug\netcoreap
 C:\Users\atwta\Desktop\dotnetcore\BookStoreApi\WebApi\Domain\obj\Debug\netcoreapp2.2\Domain.AssemblyInfo.cs
 C:\Users\atwta\Desktop\dotnetcore\BookStoreApi\WebApi\Domain\obj\Debug\netcoreapp2.2\Domain.dll
 C:\Users\atwta\Desktop\dotnetcore\BookStoreApi\WebApi\Domain\obj\Debug\netcoreapp2.2\Domain.pdb
+C:\Users\TED\Desktop\dotnetcore\BookStoreApi\Domain\bin\Debug\netcoreapp2.2\Domain.deps.json
+C:\Users\TED\Desktop\dotnetcore\BookStoreApi\Domain\bin\Debug\netcoreapp2.2\Domain.dll
+C:\Users\TED\Desktop\dotnetcore\BookStoreApi\Domain\bin\Debug\netcoreapp2.2\Domain.pdb
+C:\Users\TED\Desktop\dotnetcore\BookStoreApi\Domain\obj\Debug\netcoreapp2.2\Domain.csprojAssemblyReference.cache
+C:\Users\TED\Desktop\dotnetcore\BookStoreApi\Domain\obj\Debug\netcoreapp2.2\Domain.AssemblyInfoInputs.cache
+C:\Users\TED\Desktop\dotnetcore\BookStoreApi\Domain\obj\Debug\netcoreapp2.2\Domain.AssemblyInfo.cs
+C:\Users\TED\Desktop\dotnetcore\BookStoreApi\Domain\obj\Debug\netcoreapp2.2\Domain.dll
+C:\Users\TED\Desktop\dotnetcore\BookStoreApi\Domain\obj\Debug\netcoreapp2.2\Domain.pdb
