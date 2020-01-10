@@ -3557,23 +3557,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\atwta\\.nuget\\packages\\": {},
-    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
+    "C:\\Users\\TED\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\atwta\\Desktop\\dotnetcore\\BookStoreApi\\WebApi\\Application\\Application.csproj",
+      "projectUniqueName": "C:\\Users\\TED\\Desktop\\dotnetcore\\BookStoreApi\\Application\\Application.csproj",
       "projectName": "Application",
-      "projectPath": "C:\\Users\\atwta\\Desktop\\dotnetcore\\BookStoreApi\\WebApi\\Application\\Application.csproj",
-      "packagesPath": "C:\\Users\\atwta\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\atwta\\Desktop\\dotnetcore\\BookStoreApi\\WebApi\\Application\\obj\\",
+      "projectPath": "C:\\Users\\TED\\Desktop\\dotnetcore\\BookStoreApi\\Application\\Application.csproj",
+      "packagesPath": "C:\\Users\\TED\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\TED\\Desktop\\dotnetcore\\BookStoreApi\\Application\\obj\\",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
-      ],
       "configFilePaths": [
-        "C:\\Users\\atwta\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\TED\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -3586,11 +3582,11 @@
       "frameworks": {
         "netcoreapp2.2": {
           "projectReferences": {
-            "C:\\Users\\atwta\\Desktop\\dotnetcore\\BookStoreApi\\WebApi\\Domain\\Domain.csproj": {
-              "projectPath": "C:\\Users\\atwta\\Desktop\\dotnetcore\\BookStoreApi\\WebApi\\Domain\\Domain.csproj"
+            "C:\\Users\\TED\\Desktop\\dotnetcore\\BookStoreApi\\Domain\\Domain.csproj": {
+              "projectPath": "C:\\Users\\TED\\Desktop\\dotnetcore\\BookStoreApi\\Domain\\Domain.csproj"
             },
-            "C:\\Users\\atwta\\Desktop\\dotnetcore\\BookStoreApi\\WebApi\\Persistence\\Persistence.csproj": {
-              "projectPath": "C:\\Users\\atwta\\Desktop\\dotnetcore\\BookStoreApi\\WebApi\\Persistence\\Persistence.csproj"
+            "C:\\Users\\TED\\Desktop\\dotnetcore\\BookStoreApi\\Persistence\\Persistence.csproj": {
+              "projectPath": "C:\\Users\\TED\\Desktop\\dotnetcore\\BookStoreApi\\Persistence\\Persistence.csproj"
             }
           }
         }
@@ -3625,7 +3621,7 @@
         ],
         "assetTargetFallback": true,
         "warn": true,
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.0.100\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.100\\RuntimeIdentifierGraph.json"
       }
     }
   }

@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace WebApi
+namespace BookApiProject
 {
     public static class DbSeedingClass
     {
@@ -38,7 +38,7 @@ namespace WebApi
                     {
                         FirstName = "Jack",
                         LastName = "London",
-                        Country = new Review()
+                        Country = new Country()
                         {
                             Name = "USA"
                         }
@@ -65,7 +65,7 @@ namespace WebApi
                     {
                         FirstName = "Karl",
                         LastName = "May",
-                        Country = new Review()
+                        Country = new Country()
                         {
                             Name = "Germany"
                         }
@@ -93,7 +93,7 @@ namespace WebApi
                     {
                         FirstName = "Pavol",
                         LastName = "Almasi",
-                        Country = new Review()
+                        Country = new Country()
                         {
                             Name = "Slovakia"
                         }
@@ -116,7 +116,7 @@ namespace WebApi
                     {
                         FirstName = "Alexander",
                         LastName = "Dumas",
-                        Country = new Review()
+                        Country = new Country()
                         {
                             Name = "France"
                         }
@@ -145,7 +145,7 @@ namespace WebApi
                     {
                         FirstName = "Anita",
                         LastName = "Powers",
-                        Country = new Review()
+                        Country = new Country()
                         {
                             Name = "Canada"
                         }

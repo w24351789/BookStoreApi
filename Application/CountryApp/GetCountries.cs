@@ -12,11 +12,11 @@ namespace Application.CountryApp
 {
     public class GetCountries
     {
-        public class Query : IRequest<List<Review>>
+        public class Query : IRequest<List<Country>>
         {
         }
 
-        public class Handler : IRequestHandler<Query, List<Review>>
+        public class Handler : IRequestHandler<Query, List<Country>>
         {
             private readonly BookDbContext _context;
 
@@ -25,7 +25,7 @@ namespace Application.CountryApp
                 _context = context;
             }
 
-            public async Task<List<Review>> Handle(Query request, CancellationToken cancellationToken)
+            public async Task<List<Country>> Handle(Query request, CancellationToken cancellationToken)
             {
                 var countries = await _context.Countries.ToListAsync();
 
