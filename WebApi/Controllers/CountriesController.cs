@@ -15,17 +15,17 @@ namespace WebApi.Controllers
     public class CountriesController : BaseController
     {
         [HttpGet]
-        public async Task<ActionResult<List<Review>>> GetCountries()
+        public async Task<ActionResult<List<Country>>> GetCountries()
         {
             return await Mediator.Send(new GetCountries.Query());
         }
-        [HttpGet("{countryid}")]
-        public async Task<ActionResult<Review>> GetCountry(int countryid)
+        [HttpGet("{countryId}")]
+        public async Task<ActionResult<Country>> GetCountry(int countryId)
         {
-            return await Mediator.Send(new GetCountry.Query { CountryId = countryid});
+            return await Mediator.Send(new GetCountry.Query { CountryId = countryId});
         }
         [HttpGet("authors/{authorid}")]
-        public async Task <ActionResult<Review>> GetCountryOfAnAuthor(int authorid)
+        public async Task <ActionResult<Country>> GetCountryOfAnAuthor(int authorid)
         {
             return await Mediator.Send(new GetCountryOfAnAuthor.Query { AuthorId = authorid });
         }
@@ -33,6 +33,18 @@ namespace WebApi.Controllers
         public async Task <ActionResult<List<Author>>> GetAuthorsFromCountry(int countryid)
         {
             return await Mediator.Send(new GetAuthorsFromCountry.Query { CountryId = countryid });
+        }
+
+        [HttpPost]
+        public async Task<ActionResult<Unit>> CreateCountry(CreateCountry.Command command)
+        {
+            return await Mediator.Send(command);
+        }
+
+        [HttpDelete("{countryId}")]
+        public async Task <ActionResult<Unit>> DeleteCountry(int countryId)
+        {
+            return await Mediator.Send(new DeleteCountry.Command { CountryId = countryId });
         }
     }
 }
