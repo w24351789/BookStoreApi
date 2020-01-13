@@ -1,8 +1,10 @@
-﻿using MediatR;
+﻿using Application.Errors;
+using MediatR;
 using Microsoft.EntityFrameworkCore;
 using Persistence;
 using System;
 using System.Linq;
+using System.Net;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -29,6 +31,8 @@ namespace Application.CategoryApp
                 var categories = await _context.Categories.ToListAsync();
 
                 var delCategory = await _context.Categories.FindAsync(request.CategoryId);
+                if (delCategory == null)
+                    throw new RestException(HttpStatusCode.NotFound, new { Category = "Category want to delete not exist" });
 
                 var categoryHaveBooks = _context.BookCategories.Where(bc => bc.CategoryId == request.CategoryId)
                     .Select(bc => bc.Book)

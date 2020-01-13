@@ -1,6 +1,8 @@
-﻿using MediatR;
+﻿using Application.Errors;
+using MediatR;
 using Persistence;
 using System;
+using System.Net;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -28,7 +30,7 @@ namespace Application.CategoryApp
                 var category = await _context.Categories.FindAsync(request.CategoryId);
 
                 if (category == null)
-                    throw new Exception("Category not found");
+                    throw new RestException(HttpStatusCode.NotFound, new { Category = "Category not found" });
 
                 category.Name = request.Name ?? category.Name;
 

@@ -15,6 +15,7 @@ using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using Microsoft.OpenApi.Models;
 using Persistence;
+using WebApi.Middleware;
 
 namespace WebApi
 {
@@ -35,21 +36,23 @@ namespace WebApi
             services.AddMediatR(typeof(GetCountries.Handler).Assembly);
             services.AddDbContext<BookDbContext>(options =>
                 options.UseSqlServer(Configuration.GetConnectionString("BookDbConnection")));
-            // Register the Swagger generator, defining 1 or more Swagger documents
+            /* Register the Swagger generator, defining 1 or more Swagger documents
             services.ConfigureSwaggerGen(options =>
             {
                 // UseFullTypeNameInSchemaIds replacement for .NET Core
                 options.CustomSchemaIds(x => x.FullName);
-            });
+            });*/
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "Book Store API", Version = "v1" });
+                c.CustomSchemaIds(x => x.FullName);
             });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env, BookDbContext context)
         {
+            app.UseMiddleware<ErrorHandlingMiddleware>();
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
