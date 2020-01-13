@@ -33,26 +33,29 @@ namespace WebApi.Middleware
 
         private async Task HandleExceptionAsync(Exception ex, ILogger<ErrorHandlingMiddleware> logger, HttpContext context)
         {
-            object error = null;
+            object errors = null;
 
             switch(ex)
             {
                 case RestException re:
                     logger.LogError(ex, "REST Exception");
-                    error = re.Errors;
+                    errors = re.Errors;
                     context.Response.StatusCode = (int)re.Code;
                     break;
                 case Exception e:
                     logger.LogError(ex, "SERVER ERROR");
-                    error = string.IsNullOrWhiteSpace(e.Message) ? "Error" : e.Message;
+                    errors = string.IsNullOrWhiteSpace(e.Message) ? "Error" : e.Message;
                     context.Response.StatusCode = (int)HttpStatusCode.InternalServerError;
                     break;
             }
             
             context.Response.ContentType = "application/json";
-            if(error != null)
+            if(errors != null)
             {
-                var result = JsonConvert.SerializeObject(error);
+                var result = JsonConvert.SerializeObject(new
+                {
+                    errors
+                });
 
                 await context.Response.WriteAsync(result);
             }
