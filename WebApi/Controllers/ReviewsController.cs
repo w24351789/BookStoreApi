@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Application.ReviewApp;
 using Domain;
+using MediatR;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -34,6 +35,19 @@ namespace WebApi.Controllers
         public async Task<ActionResult<Book>> GetBookForAReview(int reviewId)
         {
             return await Mediator.Send(new GetBookForAReview.Query { ReviewId = reviewId });
+        }
+
+        [HttpPost]
+        public async Task<ActionResult<Unit>> CreateReview(CreateReview.Command command)
+        {
+            return await Mediator.Send(command);
+        }
+
+        [HttpPut("{reviewId}")]
+        public async  Task<ActionResult<Unit>> EditReview(int reviewId, EditReview.Command command)
+        {
+            command.Id = reviewId;
+            return await Mediator.Send(command);
         }
     }
 }

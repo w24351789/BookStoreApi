@@ -1,11 +1,9 @@
-﻿using Domain;
+﻿using Application.Errors;
+using Domain;
 using MediatR;
-using Microsoft.EntityFrameworkCore;
 using Persistence;
-using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
+using System.Net;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -30,10 +28,10 @@ namespace Application.AuthorApp
             public async Task<Author> Handle(Query request, CancellationToken cancellationToken)
             {
                 var author =  _context.Authors.Where(a => a.Id == request.AuthorId)
-                    .FirstOrDefault();
+                                              .FirstOrDefault();
                     
                 if (author == null)
-                    throw new Exception("Not Found");
+                    throw new RestException(HttpStatusCode.NotFound, new { Author = "Author Not Found" });
 
                 return await Task.FromResult(author);
             }

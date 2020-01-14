@@ -40,12 +40,12 @@ namespace Application.CategoryApp
                     .Count();
 
                 if (categoryHaveBooks > 0)
-                    throw new Exception($"Cannot delete because {delCategory} has books");
+                    throw new RestException(HttpStatusCode.Forbidden, new { Category = $"Cannot delete because {delCategory} has books" });
 
                 foreach(var c in categories)
                 {
                     if (c.Name.Trim().ToUpper() == delCategory.Name.Trim().ToUpper())
-                        throw new Exception($"Category {delCategory} already existed");
+                        throw new RestException(HttpStatusCode.Forbidden, new { Category = $"Category {delCategory} already existed" });
                 }
 
                 _context.Remove(delCategory);

@@ -36,15 +36,10 @@ namespace WebApi
             services.AddMediatR(typeof(GetCountries.Handler).Assembly);
             services.AddDbContext<BookDbContext>(options =>
                 options.UseSqlServer(Configuration.GetConnectionString("BookDbConnection")));
-            /* Register the Swagger generator, defining 1 or more Swagger documents
-            services.ConfigureSwaggerGen(options =>
-            {
-                // UseFullTypeNameInSchemaIds replacement for .NET Core
-                options.CustomSchemaIds(x => x.FullName);
-            });*/
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "Book Store API", Version = "v1" });
+                // UseFullTypeNameInSchemaIds replacement for .NET Core
                 c.CustomSchemaIds(x => x.FullName);
             });
         }

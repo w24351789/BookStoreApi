@@ -1,9 +1,8 @@
-﻿using Domain;
+﻿using Application.Errors;
+using Domain;
 using MediatR;
 using Persistence;
-using System;
-using System.Collections.Generic;
-using System.Text;
+using System.Net;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -28,7 +27,8 @@ namespace Application.ReviewerApp
             public async Task<Reviewer> Handle(Query request, CancellationToken cancellationToken)
             {
                 var reviewer = await _context.Reviewers.FindAsync(request.ReviewerId);
-
+                if (reviewer == null)
+                    throw new RestException(HttpStatusCode.NotFound, new { Reviewer = "Reviewer not found" });
                 return reviewer;
             }
         }

@@ -2,10 +2,8 @@
 using MediatR;
 using Microsoft.EntityFrameworkCore;
 using Persistence;
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -30,8 +28,8 @@ namespace Application.AuthorApp
             public async Task<List<Book>> Handle(Query request, CancellationToken cancellationToken)
             {
                 var books = await _context.BookAuthors.Where(ba => ba.AuthorId == request.AuthorId)
-                    .Select(ba => ba.Book)
-                    .ToListAsync();
+                                                      .Select(ba => ba.Book)
+                                                      .ToListAsync();
 
                 return books;
             }

@@ -29,7 +29,7 @@ namespace Application.CountryApp
             public async Task<List<Author>> Handle(Query request, CancellationToken cancellationToken)
             {
                 var authors = await _context.Authors.Where(c => c.Id == request.CountryId)
-                    .ToListAsync();
+                                                    .ToListAsync();
 
                 return authors;
             }

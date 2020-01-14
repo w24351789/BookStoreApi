@@ -1,9 +1,8 @@
-﻿using Domain;
+﻿using Application.Errors;
+using Domain;
 using MediatR;
 using Persistence;
-using System;
-using System.Collections.Generic;
-using System.Text;
+using System.Net;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -28,6 +27,9 @@ namespace Application.BookApp
             public async Task<Book> Handle(Query request, CancellationToken cancellationToken)
             {
                 var book = await _context.Books.FindAsync(request.BookId);
+                if (book == null)
+                    throw new RestException(HttpStatusCode.NotFound, new { Book = "Book not found" });
+
                 return book;
             }
         }

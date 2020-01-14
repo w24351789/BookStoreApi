@@ -29,8 +29,8 @@ namespace Application.CountryApp
             public async Task<Country> Handle(Query request, CancellationToken cancellationToken)
             {
                 var country = _context.Authors.Where(a => a.Id == request.AuthorId)
-                    .Select(a => a.Country)
-                    .FirstOrDefault();
+                                              .Select(a => a.Country)
+                                              .FirstOrDefault();
 
                 return await Task.FromResult(country);
             }

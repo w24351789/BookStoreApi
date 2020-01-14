@@ -1,8 +1,10 @@
-﻿using Domain;
+﻿using Application.Errors;
+using Domain;
 using MediatR;
 using Persistence;
 using System;
 using System.Collections.Generic;
+using System.Net;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
@@ -27,6 +29,8 @@ namespace Application.CountryApp
             public async Task<Country> Handle(Query request, CancellationToken cancellationToken)
             {
                 var country = await _context.Countries.FindAsync(request.CountryId);
+                if (country == null)
+                    throw new RestException(HttpStatusCode.NotFound, new { Country = $"{country} did not exist in Country list." });
 
                 return country;
             }

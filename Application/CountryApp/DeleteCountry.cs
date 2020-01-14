@@ -1,9 +1,11 @@
-﻿using Domain;
+﻿using Application.Errors;
+using Domain;
 using MediatR;
 using Persistence;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
@@ -32,11 +34,11 @@ namespace Application.CountryApp
                 var delCountry = await _context.Countries.FindAsync(request.CountryId);
 
                 if (delCountry == null)
-                    throw new Exception("Country not found");
+                    throw new RestException(HttpStatusCode.Forbidden, new { Country = "Country not found" });
 
                 var countryHasAuthor = _context.Authors.Where(a => a.Country.Id == request.CountryId).Count() > 0;
                 if (countryHasAuthor)
-                    throw new Exception($"{delCountry} has author cannot delete.");
+                    throw new RestException(HttpStatusCode.Forbidden, new { Country = $"{delCountry} has author cannot delete." });
 
                 _context.Remove(delCountry);
 
