@@ -1,18 +1,16 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using System.Collections.Generic;
 using System.Threading.Tasks;
 using Application.ReviewApp;
 using Domain;
 using MediatR;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace WebApi.Controllers
 {
-    
+
     public class ReviewsController : BaseController
     {
+        //api/reviews
         [HttpGet]
         public async Task<ActionResult<List<Review>>> GetReviews()
         {
@@ -36,7 +34,7 @@ namespace WebApi.Controllers
         {
             return await Mediator.Send(new GetBookForAReview.Query { ReviewId = reviewId });
         }
-
+        //api/reviews
         [HttpPost]
         public async Task<ActionResult<Unit>> CreateReview(CreateReview.Command command)
         {
@@ -48,6 +46,12 @@ namespace WebApi.Controllers
         {
             command.Id = reviewId;
             return await Mediator.Send(command);
+        }
+
+        [HttpDelete("{reviewId}")]
+        public async Task<ActionResult<Unit>> DeleteReview(int reviewId)
+        {
+            return await Mediator.Send(new DeleteReview.Command { ReviewId = reviewId });
         }
     }
 }
